@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      //VScode联想提示
+      "@/*": ["src/*"]
+    },
+    "types": ["element-plus/global"]
+  }
+}
