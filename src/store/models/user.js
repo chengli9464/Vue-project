@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
-//三个用户模块、token setToken removeToken
-
 //defineStore('唯一表示',回调函数) 返回值是一个函数
 export const useUserStore = defineStore(
   'user',
@@ -13,7 +11,7 @@ export const useUserStore = defineStore(
 
     //声明操作数据的方法action 支持异步
 
-  
+   
     return {
       userName
     };

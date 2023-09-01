@@ -2,11 +2,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 // 导入组件
 import Login from '@/views/Login/Login.vue';
-import Register from '@/views/Register/Register.vue'
+import Register from '@/views/Register/Register.vue';
 import Home from '@/views/Home/Home.vue';
 import Layout from '@/views/Layout/Layout.vue';
-import Category from '@/views/Category/Category.vue';
 import NotFound from '@/views/Error/NotFound.vue';
+
+import User from '@/views/Layout/system/user.vue';
+import Role from '@/views/Layout/system/role.vue';
+import Menu from '@/views/Layout/system/menu.vue';
+import Notice from '@/views/Layout/system/notice.vue';
+
+import Online from '@/views/Layout/monitor/online.vue';
+import Job from '@/views/Layout/monitor/job.vue';
+import Server from '@/views/Layout/monitor/server.vue';
+
+import Build from '@/views/Layout/tool/build.vue';
+import Swagger from '@/views/Layout/tool/swagger.vue';
 
 // 定义路由
 const routes = [
@@ -21,14 +32,13 @@ const routes = [
     //只在进入路由时触发
     beforeEnter: () => {
       if (localStorage.getItem('token') === null) {
-        ElMessageBox.alert('请登录账号！','警告',{
+        ElMessageBox.alert('请登录账号！', '警告', {
           confirmButtonText: '确定',
-          callback: () =>{
-            router.push('/login')
-          }
-        }
-        )
-        return false
+          callback: () => {
+            router.push('/login');
+          },
+        });
+        return false;
       } else {
         return true;
       }
@@ -39,18 +49,68 @@ const routes = [
         path: '',
         component: Home,
       },
+    ],
+  },
+  {
+    path: '/system',
+    component: Layout,
+    children: [
       {
-        path: 'category',
-        component: Category,
+        path: 'user',
+        component: User,
+      },
+      {
+        path: 'role',
+        component: Role,
+      },
+      {
+        path: 'menu',
+        component: Menu,
+      },
+      {
+        path: 'notice',
+        component: Notice,
+      },
+    ],
+  },
+  {
+    path: '/monitor',
+    component: Layout,
+    children: [
+      {
+        path: 'online',
+        component: Online,
+      },
+      {
+        path: 'job',
+        component: Job,
+      },
+      {
+        path: 'server',
+        component: Server,
+      },
+    ],
+  },
+  {
+    path: '/tool',
+    component: Layout,
+    children: [
+      {
+        path: 'build',
+        component: Build,
+      },
+      {
+        path: 'swagger',
+        component: Swagger,
       },
     ],
   },
   {
     path: '/login',
     component: Login,
-    beforeEnter: ()=>{
-      localStorage.removeItem('token')
-    }
+    beforeEnter: () => {
+      localStorage.removeItem('token');
+    },
   },
   {
     path: '/register',

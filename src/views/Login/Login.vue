@@ -55,7 +55,7 @@ import { ref } from 'vue';
 import router from '@/router';
 import { loginAPI } from '@/apis/users';
 
-import { useUserStore } from '@/store/user';
+import { useUserStore } from '@/store/models/user';
 
 // Pinia 响应式数据接收 不能解构赋值出来，解构出来的数据不是响应式的，方法可以直接解构
 // 如果想不丢失响应式 使用storeToRefs()方法
@@ -214,3 +214,4 @@ const doLogin = () => {
   padding-top: 50px;
 }
 </style>
+@/store/models/user

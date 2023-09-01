@@ -1,32 +1,69 @@
 <template>
-  <header class="appHeader">
-    <ul>
-      <li >
-
+  <nav class="appNav">
+    <ul v-if="isLogin.value">
+      <li>
+        <a href=""></a>
+        <router-link to="/login">请先登录</router-link>
+      </li>
+      <li>
+        <a href="">帮助中心</a>
+      </li>
+      <li>
+        <a href="">联系我们</a>
       </li>
     </ul>
-  </header>
+    <ul v-else>
+      <li>您好！ {{ useUser.userName }}</li>
+      <li>
+        <router-link to="/login" @click="quitLogin">退出登录</router-link>
+      </li>
+      <li>
+        <a href="">帮助中心</a>
+      </li>
+      <li>
+        <a href="">联系我们</a>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script setup>
+import {ref,onMounted} from 'vue'
+import { useUserStore } from '@/store/models/user';
+
+const isLogin = ref(false)
+const useUser = useUserStore()
 
 
+const quitLogin = () =>{
+  localStorage.removeItem('token');
+  localStorage.removeItem('user')
+}
+
+onMounted(()=>{
+  localStorage.getItem('token') === null || '' ? isLogin.value =false: isLogin.value =true
+})
 
 
 </script>
 
 <style scoped lang="scss">
-.appHeader{
-  margin: 0;
-  height: 150px;
-  background: green;
+.appNav {
+  background: #434445;
+  height: 50px;
   display: flex;
-
+  padding: 0;
 }
 
-ul{
-  li{
+ul {
+  
+  li {
     display: inline;
+    margin-right: 30px;
+  }
+  a{
+    color: #fff;
   }
 }
 </style>
+@/store/models/user

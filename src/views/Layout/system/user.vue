@@ -1,5 +1,5 @@
 <template>
 
-  <h1>分类页面</h1>
+  <div>用户管理</div>
   
 </template>
