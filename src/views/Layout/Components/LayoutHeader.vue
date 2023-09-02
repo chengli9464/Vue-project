@@ -30,14 +30,18 @@
 <script setup>
 import {ref,onMounted} from 'vue'
 import { useUserStore } from '@/store/models/user';
+import { useMenuStore } from '@/store/models/menu';
 
 const isLogin = ref(false)
 const useUser = useUserStore()
+const useMenu = useMenuStore()
 
 
 const quitLogin = () =>{
   localStorage.removeItem('token');
-  localStorage.removeItem('user')
+  localStorage.removeItem('user');
+  useMenu.menuData = [];
+  console.log(useMenu.menuData);
 }
 
 onMounted(()=>{

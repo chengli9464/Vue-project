@@ -3,21 +3,36 @@ import { createRouter, createWebHistory } from 'vue-router';
 // 导入组件
 import Login from '@/views/Login/Login.vue';
 import Register from '@/views/Register/Register.vue';
-import Home from '@/views/Home/Home.vue';
+
 import Layout from '@/views/Layout/Layout.vue';
 import NotFound from '@/views/Error/NotFound.vue';
-
+// 主页
+import Home from '@/views/Layout/Home/Home.vue';
+// 系统管理
 import User from '@/views/Layout/system/user.vue';
 import Role from '@/views/Layout/system/role.vue';
 import Menu from '@/views/Layout/system/menu.vue';
 import Notice from '@/views/Layout/system/notice.vue';
-
+// 系统监控
 import Online from '@/views/Layout/monitor/online.vue';
 import Job from '@/views/Layout/monitor/job.vue';
 import Server from '@/views/Layout/monitor/server.vue';
-
+// 系统工具
 import Build from '@/views/Layout/tool/build.vue';
 import Swagger from '@/views/Layout/tool/swagger.vue';
+// 数据分析
+import Analysis from '@/views/Layout/Analysis/Analysis.vue';
+// 商品中心
+import List from '@/views/Layout/Product/List.vue';
+import Category from '@/views/Layout/Product/Category.vue';
+import Property from '@/views/Layout/Product/Property.vue';
+import Brand from '@/views/Layout/Product/Brand.vue';
+// 订单中心
+import Order from '@/views/Layout/Trade/Order.vue';
+import AfterSale from '@/views/Layout/Trade/AfterSale.vue';
+import Delivery from '@/views/Layout/Trade/Deliver.vue';
+
+
 
 // 定义路由
 const routes = [
@@ -104,6 +119,56 @@ const routes = [
         component: Swagger,
       },
     ],
+  },
+  {
+    path: '/analysis',
+    component: Layout,
+    children:[
+      {
+        path:'',
+        component:Analysis
+      }
+    ]
+  },
+  {
+    path: '/product',
+    component: Layout,
+    children: [
+      {
+        path: 'list',
+        component: List,
+      },
+      {
+        path: 'category',
+        component: Category,
+      },
+      {
+        path: 'property',
+        component: Property,
+      },
+      {
+        path: 'brand',
+        component: Brand,
+      },
+    ],
+  },
+  {
+    path:'/trade',
+    component:Layout,
+    children:[
+      {
+        path: 'order',
+        component: Order,
+      },
+      {
+        path: 'afterSale',
+        component: AfterSale,
+      },
+      {
+        path:'delivery',
+        component:Delivery
+      }
+    ]
   },
   {
     path: '/login',

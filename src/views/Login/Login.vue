@@ -56,11 +56,13 @@ import router from '@/router';
 import { loginAPI } from '@/apis/users';
 
 import { useUserStore } from '@/store/models/user';
+import { useMenuStore } from '@/store/models/menu';
 
 // Pinia 响应式数据接收 不能解构赋值出来，解构出来的数据不是响应式的，方法可以直接解构
 // 如果想不丢失响应式 使用storeToRefs()方法
 // import {storeToRefs} from 'pinia'
 const useUser = useUserStore();
+const useMenu = useMenuStore();
 
 //1、定义表单对象
 const form = ref({
@@ -107,7 +109,9 @@ const doLogin = () => {
         if (res.data.status === 1) {
           // 将token存到localStorage中
           localStorage.setItem('token', res.data.token);
-          useUser.userName = username;
+          useUser.userName = username;  
+          console.log(res.data.menu);
+          useMenu.menuData = res.data.menu
           ElMessage({
             message: '登录成功',
             type: 'success',

@@ -8,15 +8,7 @@
 </template>
 
 <script setup>
-import {getUserAPI } from '@/apis/users'
-import { useUserStore } from '@/store/models/user';
 
-const useUser = useUserStore()
-getUserAPI().then(res => {
-  if(res.data.status === 1){
-    useUser.user = res.data.username
-  }
-})
 </script>
 
 <style scoped>

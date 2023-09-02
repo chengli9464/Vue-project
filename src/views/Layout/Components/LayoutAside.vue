@@ -39,11 +39,13 @@
 import { useMenuStore } from '@/store/models/menu';
 import { computed } from 'vue';
 
+//从pinia中拿菜单数据
 const useMenu = useMenuStore();
 // 筛选出有children属性的数组
 const hasChildrenMenu = computed(() => {
   return useMenu.menuData.filter((item) => item.children);
 });
+console.log(useMenu.menuData);
 // 筛选出无children属性的数组
 const noChildrenMenu = computed(() => {
   return useMenu.menuData.filter((item) => !item.children);
