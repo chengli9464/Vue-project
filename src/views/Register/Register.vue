@@ -41,7 +41,6 @@ import router from '@/router';
 const form = ref({
   username: '',
   password: '',
-  
   agree: true,
 });
 

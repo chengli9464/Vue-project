@@ -21,7 +21,6 @@ export const useMenuStore = defineStore(
     persist: {
       paths: ['menuData'],
       enable: true,
-      storage: sessionStorage,
     },
   }
 );

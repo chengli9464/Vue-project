@@ -45,7 +45,7 @@ const useMenu = useMenuStore();
 const hasChildrenMenu = computed(() => {
   return useMenu.menuData.filter((item) => item.children);
 });
-console.log(useMenu.menuData);
+
 // 筛选出无children属性的数组
 const noChildrenMenu = computed(() => {
   return useMenu.menuData.filter((item) => !item.children);

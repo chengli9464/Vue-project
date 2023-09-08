@@ -9,14 +9,14 @@ import NotFound from '@/views/Error/NotFound.vue';
 // 主页
 import Home from '@/views/Layout/Home/Home.vue';
 // 系统管理
-import User from '@/views/Layout/system/user.vue';
-import Role from '@/views/Layout/system/role.vue';
-import Menu from '@/views/Layout/system/menu.vue';
-import Notice from '@/views/Layout/system/notice.vue';
+import User from '@/views/Layout/System/user.vue';
+import Role from '@/views/Layout/System/role.vue';
+import Menu from '@/views/Layout/System/menu.vue';
+import Notice from '@/views/Layout/System/notice.vue';
 // 系统监控
-import Online from '@/views/Layout/monitor/online.vue';
-import Job from '@/views/Layout/monitor/job.vue';
-import Server from '@/views/Layout/monitor/server.vue';
+import Online from '@/views/Layout/Monitor/online.vue';
+import Job from '@/views/Layout/Monitor/job.vue';
+import Server from '@/views/Layout/Monitor/server.vue';
 // 系统工具
 import Build from '@/views/Layout/tool/build.vue';
 import Swagger from '@/views/Layout/tool/swagger.vue';

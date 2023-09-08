@@ -109,8 +109,8 @@ const doLogin = () => {
         if (res.data.status === 1) {
           // 将token存到localStorage中
           localStorage.setItem('token', res.data.token);
+          //将登录信息放进pinia中
           useUser.userName = username;  
-          console.log(res.data.menu);
           useMenu.menuData = res.data.menu
           ElMessage({
             message: '登录成功',

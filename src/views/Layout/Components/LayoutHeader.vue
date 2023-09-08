@@ -38,10 +38,10 @@ const useMenu = useMenuStore()
 
 
 const quitLogin = () =>{
-  localStorage.removeItem('token');
-  localStorage.removeItem('user');
+  localStorage.setItem('token','');
+  localStorage.setItem('user','');
   useMenu.menuData = [];
-  console.log(useMenu.menuData);
+  // console.log(useMenu.menuData);
 }
 
 onMounted(()=>{

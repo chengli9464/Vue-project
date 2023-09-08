@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 //defineStore('唯一表示',回调函数) 返回值是一个函数
@@ -10,8 +10,6 @@ export const useUserStore = defineStore(
     const userName = ref('')
 
     //声明操作数据的方法action 支持异步
-
-   
     return {
       userName
     };
