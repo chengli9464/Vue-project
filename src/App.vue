@@ -8,6 +8,16 @@
 </template>
 
 <script setup>
+// import {getUserAPI } from '@/apis/users'
+// import { useUserStore } from '@/store/models/user';
+
+// // 更新token
+// const useUser = useUserStore()
+// getUserAPI().then(res => {
+//   if(res.data.status === 1){
+//     useUser.user = res.data.username
+//   }
+// })
 
 </script>
 

@@ -17,7 +17,7 @@ export const useUserStore = defineStore(
   {
     //开启当前模块的持久化
     persist: {
-      paths:[ 'userName' ],
+      paths:[ 'userName'],
       enable:true,
       storage: localStorage
     }

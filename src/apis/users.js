@@ -25,7 +25,15 @@ export const registerAPI = (username, password) => {
 
 export const getUserAPI = () => {
   return httpInstance({
-    url: '/user',
+    url: '/users',
     method: 'get',
   });
 };
+
+export const getUserImgAPI = ()=>{
+  return httpInstance({
+    url:'/users/image',
+    method:'get'
+  })
+}
+

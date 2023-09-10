@@ -7,6 +7,15 @@ export const useMenuStore = defineStore(
   () => {
     const menuData = ref([]);
 
+    const tagsList = ref([
+      {
+        path: '/home',
+        name: 'home',
+        icons:'HomeFilled',
+        label: '首页',
+      },
+    ])
+
     //去后端获取menu数据 不异步
     const getMenu = () => {
       const menu = getMenuAPI().then((res) => res.data);
@@ -14,12 +23,13 @@ export const useMenuStore = defineStore(
     };
     return {
       menuData,
+      tagsList,
       getMenu,
     };
   },
   {
     persist: {
-      paths: ['menuData'],
+      paths: ['menuData','tagsList' ],
       enable: true,
     },
   }

@@ -41,12 +41,11 @@ const routes = [
     redirect: '/login',
   },
   {
-    //绑定动态路由
     path: '/home',
     component: Layout,
     //只在进入路由时触发
     beforeEnter: () => {
-      if (localStorage.getItem('token') === null) {
+      if (localStorage.getItem('token' === null)) {
         ElMessageBox.alert('请登录账号！', '警告', {
           confirmButtonText: '确定',
           callback: () => {
@@ -68,54 +67,66 @@ const routes = [
   },
   {
     path: '/system',
+    name:'system',
     component: Layout,
     children: [
       {
         path: 'user',
+        name:'user',
         component: User,
       },
       {
         path: 'role',
+        name:'role',
         component: Role,
       },
       {
         path: 'menu',
+        name:'menu',
         component: Menu,
       },
       {
         path: 'notice',
+        name:'notice',
         component: Notice,
       },
     ],
   },
   {
     path: '/monitor',
+    name:'monitor',
     component: Layout,
     children: [
       {
         path: 'online',
+        name:'online',
         component: Online,
       },
       {
         path: 'job',
+        name:'job',
         component: Job,
       },
       {
         path: 'server',
+        name:'server',
         component: Server,
       },
     ],
   },
   {
     path: '/tool',
+    name:'tool',
     component: Layout,
     children: [
       {
         path: 'build',
+        name:'build',
         component: Build,
       },
       {
         path: 'swagger',
+        name:'swagger',
         component: Swagger,
       },
     ],
@@ -132,46 +143,56 @@ const routes = [
   },
   {
     path: '/product',
+    name:'product',
     component: Layout,
     children: [
       {
         path: 'list',
+        name:'list',
         component: List,
       },
       {
         path: 'category',
+        name:'category',
         component: Category,
       },
       {
         path: 'property',
+        name:'property',
         component: Property,
       },
       {
         path: 'brand',
+        name:'brand',
         component: Brand,
       },
     ],
   },
   {
     path:'/trade',
+    name:'trade',
     component:Layout,
     children:[
       {
         path: 'order',
+        name:'order',
         component: Order,
       },
       {
         path: 'afterSale',
+        name:'afterSale',
         component: AfterSale,
       },
       {
         path:'delivery',
+        name:'delivery',
         component:Delivery
       }
     ]
   },
   {
     path: '/login',
+    name:'login',
     component: Login,
     beforeEnter: () => {
       localStorage.removeItem('token');
@@ -179,6 +200,7 @@ const routes = [
   },
   {
     path: '/register',
+    name:'register',
     component: Register,
   },
   {

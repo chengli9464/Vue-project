@@ -22,14 +22,4 @@ export default defineConfig({
       '@':fileURLToPath(new URL('./src',import.meta.url))
     }
   },
-  css:{
-    preprocessorOptions:{
-      scss:{
-        // 自动导入定制化样式文件进行覆盖
-        additionalData:`
-         @use "@/styles/element/index.scss" as *;
-        `
-      }
-    }
-  }
 })
